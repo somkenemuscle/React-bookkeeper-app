@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+}
+
+/* NAVBAR STYLING */
+.topnav {
+    overflow: hidden;
+    background-color: #24252a;
+  
+    padding: 20px 10px;
+    font-family: "Montserrat", sans-serif;
+    
+}
+
+.items {
+    color: #edf0f1;
+    padding: 6px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    float: right;
+    cursor: pointer;
+
+}
+
+.items:hover {
+    color: #0088a9;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.active {
+    padding: 6px 16px;
+    cursor: pointer;
+    float: left;
+    font-weight: bold;
+    font-size: 17px;
+    color: #edf0f1;
+    background-color: rgba(0, 136, 169, 1);
+    border: 1px solid rgba(0, 136, 169, 1);
+    border-radius: 50px;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* BODY STYLES */
+.header{
+    margin-top: 140px;
+    text-align: center;
+    font-weight: bold;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 10px;
+    font-size: 70px;
+
+}
+.header2{
+    text-align: center;
+    color: grey;
+    font-family: "Montserrat", sans-serif;
+}
+
+.re{
+    font-size: 500px;
+}
+/* FOOTER STYLES */
+footer {
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    padding: 20px 0px;
+    background-color: #24252a;
+  }
+  
+  footer p {
+    color: #ccc;
+    font-family: "Montserrat", sans-serif;
+  }
