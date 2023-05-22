@@ -2,6 +2,7 @@
     margin: 0;
 }
 
+
 /* NAVBAR STYLING */
 .topnav {
     overflow: hidden;
@@ -60,6 +61,24 @@
 
 .re{
     font-size: 500px;
+}
+
+
+
+
+
+
+
+
+/* 
+FORM DESIGN */
+.addform-container{
+    background-color: aqua;
+    max-width: 600px;
+    height: 600px;
+    font-family: "Montserrat", sans-serif ;
+    padding: 70px 5px;
+    margin: 20px auto;
 }
 /* FOOTER STYLES */
 footer {

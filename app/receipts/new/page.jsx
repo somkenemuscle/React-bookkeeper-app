@@ -1,13 +1,7 @@
-import Styles from '../styles/receipts.css'
-const newReceipt = () => {
+import NewReceipt from "@/components/receipt-form";
+
+export default function () {
     return (
-        <div>
-        <h3>Add New Receipt</h3>
-            <form>
-                <input type='text'></input>
-            </form>
-        </div>
+        <NewReceipt />
     )
 }
-
-export default newReceipt

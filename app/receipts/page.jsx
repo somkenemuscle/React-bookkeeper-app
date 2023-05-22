@@ -1,4 +1,3 @@
-import Styles from './styles/receipts.css'
 const receipts = () => {
     return (
         <div>
