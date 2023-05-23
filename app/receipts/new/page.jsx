@@ -1,7 +1,7 @@
-import NewReceipt from "@/components/receipt-form";
+import AddReceipt from "@/components/addreceipt";
 
 export default function () {
     return (
-        <NewReceipt />
+        <AddReceipt />
     )
 }
