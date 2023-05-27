@@ -2,6 +2,11 @@
     margin: 0;
 }
 
+/* .body {
+    background-color:  #000000;
+    color: white;
+} */
+
 /* NAVBAR STYLING */
 .topnav {
     overflow: hidden;
@@ -60,9 +65,6 @@
     font-family: "Montserrat", sans-serif;
 }
 
-.re {
-    font-size: 500px;
-}
 
 
 /* LIST RECEIPT PAGE STYLING */
@@ -89,6 +91,7 @@
     border-color: black;
     transition: 0.1s;
     background-color: white;
+    color: black;
 }
 
 .r-items {
