@@ -1,50 +1,22 @@
 "use client"
 import { useState } from 'react'
-import { v4 } from 'uuid'
 import Styles from '../styles/page.css'
 
 const newReceipt = (props) => {
 
-    const [receipt, setReceipt] = useState(
-        {
-            id: '',
-            name: '',
-            quantity: '',
-            date: '',
-            price: '',
-            category: ''
-        }
-    )
-
     function handleChange(e) {
         const { name, value } = e.target;
-        setReceipt((prevReceipt) => {
-            return {
-                ...prevReceipt,
-                id:v4(),
-                [name]: value
-            };
-        })
     }
 
 
     function handleSubmit(e) {
         e.preventDefault()
-        console.log(receipt)
-        props.onAdd(receipt);
-        setReceipt({
-            name: '',
-            quantity: '',
-            date: '',
-            price: '',
-            category: ''
-        })
     }
 
 
     return (
         <div className="addform-container">
-            <h3 className='r-head'>ADD RECEIPT</h3>
+            <h3 className='r-head'>EDIT RECEIPT</h3>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label className='r-label'>Item</label>
@@ -70,8 +42,8 @@ const newReceipt = (props) => {
                         <option value='electronics'>Electronics</option>
                     </select>
                 </div>
-                <button className='r-btn'>Add Receipt</button>
-
+                    <button className='r-btn'>Edit Receipt</button>
+            
 
             </form>
         </div>

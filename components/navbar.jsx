@@ -5,7 +5,7 @@
     return (
         <nav className="topnav">
            <section className='sec'>
-           <Link className='active' href='/'>BOOKIE 🧾</Link>
+           <Link className='active' href='/'>BOOKIE</Link>
            <Link className='items' href='/receipts/new'>Add-Receipt</Link>
            <Link className='items' href='/receipts'>Receipts</Link>
            </section>
