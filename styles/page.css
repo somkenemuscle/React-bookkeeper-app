@@ -68,47 +68,75 @@
 
 
 /* LIST RECEIPT PAGE STYLING */
-.r-list-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 20px 0px 10% 10%;
-    max-width: 80%;
-}
+.search-container{
+  margin-top: 50px;
 
-.r-list-items {
+}
+.search{
+    margin-left:45%;
+    width: 10%;
+    padding: 10px 10px;
     font-family: "Montserrat", sans-serif;
-    border: 1px solid lightgrey;
+}
+
+table {
+    margin-top: 20px;
+    margin-left: 15%;
+    margin-right: 15%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 70%;
+    border: 1px solid #ddd;
+    font-family: "Montserrat", sans-serif ;
+
+
+}
+
+th {
+    background-color: #131731;
+    color: white;
+    text-align: left;
+    padding: 15px;
     cursor: pointer;
-    padding: 15px 15px;
-    border-radius: 15px;
-    width: 27%;
-    margin-left: 1.66%;
-    margin-top: 1.66%;
+    font-weight: lighter;
 }
 
-.r-list-items:hover {
-    border-color: black;
-    transition: 0.1s;
-    background-color: white;
+td {
+    text-align: left;
+    padding: 14px;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+.delete {
+    color: darkred;
+}
+
+.delete:hover {
+    color: orangered;
+    transition: 0.4s;
+}
+
+.edit {
     color: black;
+    transition: 0.6s;
 }
 
-.r-items {
-    margin-bottom: 5px;
+.edit:hover {
+    color: darkgray;
+    transition: 0.6s;
 }
-
-.r-descrip {
-    color: grey;
-    font-size: 15px;
-    font-family: Ubuntu;
-}
-
-
-
-
-
-
 
 
 

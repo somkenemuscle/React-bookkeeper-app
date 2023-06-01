@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Styles from '../styles/page.css'
 
-const newReceipt = (props) => {
+const EditReceipt = (props) => {
 
     function handleChange(e) {
         const { name, value } = e.target;
@@ -20,17 +20,17 @@ const newReceipt = (props) => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label className='r-label'>Item</label>
-                    <input onChange={handleChange} name='name' className='r-input' type='text' placeholder='Product Name' value={receipt.name} required />
+                    <input onChange={handleChange} name='name' className='r-input' type='text' placeholder='Product Name'  required />
                 </div>
                 <label className='r-label'>Quantity</label>
-                <input onChange={handleChange} name='quantity' className='r-input' type='number' placeholder='Quantity' value={receipt.quantity} min='1' required />
+                <input onChange={handleChange} name='quantity' className='r-input' type='number' placeholder='Quantity'  min='1' required />
                 <div>
                     <label className='r-label'>Date Of Purchase</label>
-                    <input onChange={handleChange} name='date' className='r-input' type="date" placeholder='Select Date' value={receipt.date} required />
+                    <input onChange={handleChange} name='date' className='r-input' type="date" placeholder='Select Date'  required />
                 </div>
                 <div>
                     <label className='r-label'>Price</label>
-                    <input onChange={handleChange} name='price' className='r-input' type='number' placeholder='$ Price' value={receipt.price} required />
+                    <input onChange={handleChange} name='price' className='r-input' type='number' placeholder='$ Price'  required />
                 </div>
                 <div>
                     <label className='r-label'>Select Category</label>
@@ -50,4 +50,4 @@ const newReceipt = (props) => {
     )
 }
 
-export default newReceipt
+export default EditReceipt

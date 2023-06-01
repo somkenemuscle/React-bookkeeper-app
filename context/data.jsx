@@ -6,7 +6,7 @@ export const AppContext = createContext([], ()=>{});
 export const AppContextProvider = ( {children} ) => {
     const [receipts, setReceipts] = useState([]);
     return (
-        <AppContext.Provider value={[receipts, setReceipts]}>
+        <AppContext.Provider value={[receipts, setReceipts ]} >
             {children}
         </AppContext.Provider>
     );

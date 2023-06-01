@@ -1,6 +1,6 @@
 const Receipts = [
     {
-
+        id: 1,
         name: 'Orange',
         quantity: 4,
         date: '2023/02/15',
@@ -8,7 +8,7 @@ const Receipts = [
         category: 'groceries'
     },
     {
-
+        id: 2,
         name: 'Iphone 12 Pro',
         quantity: 2,
         date: '2023/12/03',
@@ -16,7 +16,7 @@ const Receipts = [
         category: 'electronics'
     },
     {
-
+        id: 3,
         name: 'Dior Perfume',
         quantity: 5,
         date: '2023/10/02',
@@ -24,7 +24,7 @@ const Receipts = [
         category: 'cosmetics'
     },
     {
-
+        id: 4,
         name: 'Travel To Europe',
         quantity: 7,
         date: '2023/05/15',
@@ -32,7 +32,7 @@ const Receipts = [
         category: 'travel'
     },
     {
-
+        id: 5,
         name: 'Jollof Rice',
         quantity: 1,
         date: '2023/10/02',
