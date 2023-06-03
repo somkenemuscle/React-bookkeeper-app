@@ -3,7 +3,7 @@ import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import Styles from '../styles/page.css'
 import { AppContext, AppContextProvider } from '../context/data'
-import { EditReceiptContextProvider, EditReceiptContext } from '@/context/edit'
+import { DisplayReceiptContextProvider, DisplayReceiptContext } from '@/context/display'
 
 
 export const metadata = {
@@ -23,9 +23,9 @@ export default function RootLayout({ children }) {
             <body className='body'>
                 <Navbar />
                 <AppContextProvider>
-                    <EditReceiptContextProvider>
+                    <DisplayReceiptContextProvider>
                         {children}
-                    </EditReceiptContextProvider>
+                    </DisplayReceiptContextProvider>
                 </AppContextProvider>
                 <Footer />
             </body>

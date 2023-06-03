@@ -3,14 +3,25 @@ import Listreceipts from "@/components/listreceipt";
 import Demoreceipts from "@/demo";
 import { useState, useContext, createContext } from 'react';
 import { AppContext } from "@/context/data";
-import { TableHTMLAttributes } from "react";
+import { DisplayReceiptContext } from "@/context/display";
+
 
 export default function () {
-
+//state calls
   const [receipts, setReceipts] = useContext(AppContext);
   const [search, setSearch] = useState("")
+  const [condition, setConditon] = useState(true)
+  const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext)
+  const [resultSearch, setResultSearch] = useState()
 
+  //delete from receipt on and after search
   function deleteReceipt(id) {
+    setDisplayReceipts((prevReceipts) => {
+      return prevReceipts.filter((receipt, index) => {
+        return DisplayReceipts[index].id !== id;
+      });
+    })
+
     setReceipts((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
         return receipts[index].id !== id;
@@ -18,33 +29,51 @@ export default function () {
     })
   }
 
-  // function editReceipt(id) {
-  //     receipts.filter((receipt, index) => {
-  //       console.log(receipt)
-  //       console.log(index)
-  //       console.log(id)
-  //     });
+  function deleteReceiptSearch(id) {
+    setResultSearch((prevReceipts) => {
+      return prevReceipts.filter((receipt, index) => {
+        return resultSearch[index].id !== id;
+      });
+    })
 
-  // }
+    setDisplayReceipts((prevReceipts) => {
+      return prevReceipts.filter((receipt, index) => {
+        return DisplayReceipts[index].id !== id;
+      });
+    })
 
+    setReceipts((prevReceipts) => {
+      return prevReceipts.filter((receipt, index) => {
+        return receipts[index].id !== id;
+      });
+    })
+  }
+  
+  //searching for a receipt
   function handleSearchChange(e) {
     const { value } = e.target;
     setSearch(value)
   }
-  function getSearch(e) {
-    console.log(search)
-     function showSearch(search) {
-      setReceipts((prevReceipts) => {
-        return prevReceipts.filter((receipt, index) => {
-          return receipts[index].name === search;
-        });
-      })
-     }
-     showSearch(search)
-    e.preventDefault()
 
+  function getSearch(e) {
+    e.preventDefault()
+    function showSearch(search) {
+      return DisplayReceipts.filter((receipt) =>
+        receipt.name === search
+      )
+    }
+    setResultSearch(showSearch(search))
+    console.log(resultSearch)
+    setConditon(false)
+    setSearch("")
   }
 
+  //show all receipts after search has been made
+  function handleToggle() {
+    setConditon(true)
+  }
+
+  //return components
   return (
     <div className="list-container">
       <form className="search-container" onSubmit={getSearch}>
@@ -52,6 +81,7 @@ export default function () {
         <button>Search</button>
       </form>
 
+      <button onClick={handleToggle}>Show Receipt</button>
 
       <table>
         <tbody>
@@ -61,7 +91,6 @@ export default function () {
             <th>Quantity</th>
             <th>Price</th>
             <th>Category</th>
-
             <th>
               <span className="material-symbols-outlined">
                 edit_note
@@ -74,7 +103,7 @@ export default function () {
             </th>
           </tr>
           {
-            receipts.map((item) => {
+            condition ? receipts.map((item) => {
               return (
                 <Listreceipts
                   key={item.id}
@@ -88,13 +117,24 @@ export default function () {
                 //onEdit={editReceipt}
                 />
               )
+            }) : resultSearch.map((item) => {
+              return (
+                <Listreceipts
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  quantity={item.quantity}
+                  price={item.price}
+                  date={item.date}
+                  category={item.category}
+                  onDelete={deleteReceiptSearch}
+                //onEdit={editReceipt}
+                />
+              )
             })
           }
         </tbody>
       </table>
-
-
     </div>
-
   )
 }
