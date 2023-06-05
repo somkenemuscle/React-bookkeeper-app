@@ -2,8 +2,9 @@
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
 import Styles from '../styles/page.css'
-import { AppContext, AppContextProvider } from '../context/data'
-import { DisplayReceiptContextProvider, DisplayReceiptContext } from '@/context/display'
+import { AppContextProvider } from '../context/data'
+import { DisplayReceiptContextProvider } from '@/context/display'
+import { EditReceiptContextProvider } from '@/context/edit'
 
 
 export const metadata = {
@@ -24,7 +25,9 @@ export default function RootLayout({ children }) {
                 <Navbar />
                 <AppContextProvider>
                     <DisplayReceiptContextProvider>
-                        {children}
+                        <EditReceiptContextProvider>
+                            {children}
+                        </EditReceiptContextProvider>
                     </DisplayReceiptContextProvider>
                 </AppContextProvider>
                 <Footer />

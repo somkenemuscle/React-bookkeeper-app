@@ -4,15 +4,28 @@ import Demoreceipts from "@/demo";
 import { useState, useContext, createContext } from 'react';
 import { AppContext } from "@/context/data";
 import { DisplayReceiptContext } from "@/context/display";
+import { EditReceiptContext } from "@/context/edit";
 
 
 export default function () {
-//state calls
+  //state calls
   const [receipts, setReceipts] = useContext(AppContext);
   const [search, setSearch] = useState("")
   const [condition, setConditon] = useState(true)
   const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext)
+  const [editReceipt, setEditReceipt] = useContext(EditReceiptContext)
+
   const [resultSearch, setResultSearch] = useState()
+
+  //editing receipt
+  function editingReceipt(id) {
+    function getEdit() {
+      return DisplayReceipts.filter((receipt) =>
+      receipt.id === id
+    )}
+    let detail = getEdit()
+    setEditReceipt(...detail)
+  }
 
   //delete from receipt on and after search
   function deleteReceipt(id) {
@@ -48,7 +61,7 @@ export default function () {
       });
     })
   }
-  
+
   //searching for a receipt
   function handleSearchChange(e) {
     const { value } = e.target;
@@ -63,7 +76,6 @@ export default function () {
       )
     }
     setResultSearch(showSearch(search))
-    console.log(resultSearch)
     setConditon(false)
     setSearch("")
   }
@@ -114,7 +126,7 @@ export default function () {
                   date={item.date}
                   category={item.category}
                   onDelete={deleteReceipt}
-                //onEdit={editReceipt}
+                  onEdit={editingReceipt}
                 />
               )
             }) : resultSearch.map((item) => {
