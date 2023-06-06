@@ -1,4 +1,5 @@
-'use client'
+"use client"
+
 import Listreceipts from "@/components/listreceipt";
 import Demoreceipts from "@/demo";
 import { useState, useContext, createContext } from 'react';
@@ -6,40 +7,38 @@ import { AppContext } from "@/context/data";
 import { DisplayReceiptContext } from "@/context/display";
 import { EditReceiptContext } from "@/context/edit";
 
-
 export default function () {
-  //state calls
+  // state calls
   const [receipts, setReceipts] = useContext(AppContext);
-  const [search, setSearch] = useState("")
-  const [condition, setConditon] = useState(true)
-  const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext)
-  const [editReceipt, setEditReceipt] = useContext(EditReceiptContext)
+  const [search, setSearch] = useState("");
+  const [condition, setCondition] = useState(true);
+  const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext);
+  const [editReceipt, setEditReceipt] = useContext(EditReceiptContext);
 
-  const [resultSearch, setResultSearch] = useState()
+  const [resultSearch, setResultSearch] = useState();
 
-  //editing receipt
+  // editing receipt
   function editingReceipt(id) {
     function getEdit() {
-      return DisplayReceipts.filter((receipt) =>
-      receipt.id === id
-    )}
-    let detail = getEdit()
-    setEditReceipt(...detail)
+      return DisplayReceipts.filter((receipt) => receipt.id === id);
+    }
+    let detail = getEdit();
+    setEditReceipt(...detail);
   }
 
-  //delete from receipt on and after search
+  // delete from receipt on and after search
   function deleteReceipt(id) {
     setDisplayReceipts((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
         return DisplayReceipts[index].id !== id;
       });
-    })
+    });
 
     setReceipts((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
         return receipts[index].id !== id;
       });
-    })
+    });
   }
 
   function deleteReceiptSearch(id) {
@@ -47,106 +46,125 @@ export default function () {
       return prevReceipts.filter((receipt, index) => {
         return resultSearch[index].id !== id;
       });
-    })
+    });
 
     setDisplayReceipts((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
         return DisplayReceipts[index].id !== id;
       });
-    })
+    });
 
     setReceipts((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
         return receipts[index].id !== id;
       });
-    })
+    });
   }
 
-  //searching for a receipt
+  // searching for a receipt
   function handleSearchChange(e) {
     const { value } = e.target;
-    setSearch(value)
+    setSearch(value);
   }
 
   function getSearch(e) {
-    e.preventDefault()
+    e.preventDefault();
     function showSearch(search) {
-      return DisplayReceipts.filter((receipt) =>
-        receipt.name === search
-      )
+      return DisplayReceipts.filter((receipt) => receipt.name === search);
     }
-    setResultSearch(showSearch(search))
-    setConditon(false)
-    setSearch("")
+    setResultSearch(showSearch(search));
+    setCondition(false);
+    setSearch("");
   }
 
-  //show all receipts after search has been made
+  // show all receipts after search has been made
   function handleToggle() {
-    setConditon(true)
+    setCondition(true);
   }
 
-  //return components
+  // return components
   return (
     <div className="list-container">
-      <form className="search-container" onSubmit={getSearch}>
-        <input className="search" onChange={handleSearchChange} name="search" value={search} type="text" placeholder="find receipt" required />
-        <button>Search</button>
-      </form>
+      <div className="header">
+        <form className="search-container" onSubmit={getSearch}>
+          <input
+            className="search"
+            onChange={handleSearchChange}
+            name="search"
+            value={search}
+            type="text"
+            placeholder="find receipt"
+            required
+          />
+          <button>Search</button>
+        </form>
 
-      <button onClick={handleToggle}>Show Receipt</button>
+        <button className="show-receipt-button" onClick={handleToggle}>
+          Show Receipt
+        </button>
+      </div>
 
-      <table>
-        <tbody>
-          <tr>
-            <th>Date</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>
-              <span className="material-symbols-outlined">
-                edit_note
-              </span>
-            </th>
-            <th>
-              <span className="material-symbols-outlined">
-                delete
-              </span>
-            </th>
-          </tr>
-          {
-            condition ? receipts.map((item) => {
-              return (
-                <Listreceipts
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  quantity={item.quantity}
-                  price={item.price}
-                  date={item.date}
-                  category={item.category}
-                  onDelete={deleteReceipt}
-                  onEdit={editingReceipt}
-                />
-              )
-            }) : resultSearch.map((item) => {
-              return (
-                <Listreceipts
-                  key={item.id}
-                  id={item.id}
-                  name={item.name}
-                  quantity={item.quantity}
-                  price={item.price}
-                  date={item.date}
-                  category={item.category}
-                  onDelete={deleteReceiptSearch}
-                //onEdit={editReceipt}
-                />
-              )
-            })
-          }
-        </tbody>
-      </table>
+      <div className="receipts-container">
+        <div className="table-container">
+          <table>
+            <thead>
+            
+              <tr>
+                <th>Date</th>
+                <th>Shop</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>
+                  <span className="material-symbols-outlined">edit_note</span>
+                </th>
+                <th>
+                  <span className="material-symbols-outlined">delete</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+            {condition
+  ? receipts.map((item) => (
+      <Listreceipts
+        key={item.id}
+        id={item.id}
+        shop={item.shop}
+        name={item.name} // Adjusted prop name for the item name
+        quantity={item.quantity}
+        price={item.price}
+        date={item.date}
+        category={item.category}
+        onDelete={deleteReceipt}
+        onEdit={editingReceipt}
+      />
+    ))
+  : resultSearch.map((item) => (
+      <Listreceipts
+        key={item.id}
+        id={item.id}
+        shop={item.shop}
+        name={item.name} // Adjusted prop name for the item name
+        quantity={item.quantity}
+        price={item.price}
+        date={item.date}
+        category={item.category}
+        onDelete={deleteReceiptSearch}
+        // onEdit={editReceipt}
+      />
+    ))}
+
+            </tbody>
+          </table>
+        </div>
+
+        {/* Add Receipt component */}
+        <div className="add-receipt-container">
+          {/* Add Receipt component content */}
+        </div>
+      </div>
     </div>
-  )
+  );
 }
+

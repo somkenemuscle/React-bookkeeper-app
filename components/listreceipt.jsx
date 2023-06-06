@@ -12,6 +12,7 @@ const listreceipts = (props) => {
     return (
         <tr>
             <td>{props.date}</td>
+            <td>{props.shop}</td>
             <td>{props.name}</td>
             <td>{props.quantity}</td>
             <td>${props.price}</td>

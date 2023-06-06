@@ -8,7 +8,8 @@ const newReceipt = (props) => {
     const [receipt, setReceipt] = useState(
         {
             id: '',
-            name: '',
+            shop: '',
+            item: '',
             quantity: '',
             date: '',
             price: '',
@@ -32,7 +33,8 @@ const newReceipt = (props) => {
         e.preventDefault()
         props.onAdd(receipt);
         setReceipt({
-            name: '',
+            shop: '',
+            item: '',
             quantity: '',
             date: '',
             price: ''
@@ -44,6 +46,12 @@ const newReceipt = (props) => {
         <div className="addform-container">
             <h3 className='r-head'>ADD RECEIPT</h3>
             <form onSubmit={handleSubmit}>
+
+
+           <div>
+                    <label className='r-label'>Shop</label>
+                    <input onChange={handleChange} name='shop' className='r-input' type='text' placeholder='Shop Name' value={receipt.shop} required />
+                </div>
                 <div>
                     <label className='r-label'>Item</label>
                     <input onChange={handleChange} name='name' className='r-input' type='text' placeholder='Product Name' value={receipt.name} required />

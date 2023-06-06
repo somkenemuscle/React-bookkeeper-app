@@ -236,3 +236,41 @@ footer p {
     color: #ccc;
     font-family: "Montserrat", sans-serif;
 }
+
+
+.credit-card-animation {
+    position: absolute;
+    top: 60%; /* Adjust this value to position the image vertically */
+    left: 0;
+    animation: moveCard 16s linear infinite;
+  }
+
+  @keyframes moveCard {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(calc(100vw - 200px));
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  body {
+    background-color: #f2e6ff; /* Adjust the color code as per your preference */
+  }
+  
+
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .show-receipt-button {
+    margin-left: 20px; /* Adjust the margin as per your preference */
+  }
+  
+  
+  
+  
