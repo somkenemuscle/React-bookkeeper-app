@@ -1,13 +1,17 @@
 "use client"
 import Styles from '../styles/page.css'
 import { useState, useContext, createContext } from 'react';
+import { AppContext } from "@/context/data";
 import { EditReceiptContext } from "@/context/edit";
 import { DisplayReceiptContext } from '@/context/display';
+import { useRouter } from 'next/navigation';
 
-const EditReceipt = (props) => {
+const EditReceipt = () => {
+    const router = useRouter();
     const [editReceipt, setEditReceipt] = useContext(EditReceiptContext)
     const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext)
-    const [editValue, setEditValue] = useState([])
+    const [receipts, setReceipts] = useContext(AppContext);
+
     const [edit, setEdit] = useState(
         {
             id: editReceipt.id,
@@ -38,14 +42,24 @@ const EditReceipt = (props) => {
     }
 
     function handleSubmit(e) {
-        setEditValue(() => {
-            return [edit]
-        })
-    let result = DisplayReceipts.filter((item)=>{
-         return  item.id === edit.id
-    })
-        console.log(result)
-        console.log(edit)
+        const elementsIndex = receipts.findIndex(element => element.id == edit.id)
+        let newDisplay = [...receipts]
+        newDisplay[elementsIndex] = {
+            ...edit
+        }
+        setReceipts(newDisplay)
+
+        //for displaying receipt
+        const displayelementsIndex = DisplayReceipts.findIndex(element => element.id == edit.id)
+        let newelementDisplay = [...DisplayReceipts]
+        newelementDisplay[displayelementsIndex] = {
+            ...edit
+        }
+        setDisplayReceipts(newelementDisplay)
+        function link() {
+            router.push('/receipts')
+        }
+        link()
         e.preventDefault()
     }
 
@@ -78,6 +92,7 @@ const EditReceipt = (props) => {
                     </select>
                 </div>
                 <button className='r-btn'>Edit Receipt</button>
+
             </form>
         </div>
     )

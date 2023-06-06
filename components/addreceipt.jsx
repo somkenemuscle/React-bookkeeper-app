@@ -1,10 +1,11 @@
 "use client"
 import { useState } from 'react'
 import { v4 } from 'uuid'
+import { useRouter } from 'next/navigation';
 import Styles from '../styles/page.css'
 
 const newReceipt = (props) => {
-
+    const router = useRouter();
     const [receipt, setReceipt] = useState(
         {
             id: '',
@@ -21,7 +22,7 @@ const newReceipt = (props) => {
         setReceipt((prevReceipt) => {
             return {
                 ...prevReceipt,
-                id:v4(),
+                id: v4(),
                 [name]: value
             };
         })
@@ -37,6 +38,10 @@ const newReceipt = (props) => {
             date: '',
             price: ''
         })
+        function link() {
+            router.push('/receipts')
+        }
+        link()
     }
 
 

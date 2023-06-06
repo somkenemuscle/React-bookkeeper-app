@@ -42,6 +42,7 @@ export default function () {
     })
   }
 
+  //delete from search side ------------------------
   function deleteReceiptSearch(id) {
     setResultSearch((prevReceipts) => {
       return prevReceipts.filter((receipt, index) => {
@@ -140,7 +141,7 @@ export default function () {
                   date={item.date}
                   category={item.category}
                   onDelete={deleteReceiptSearch}
-                //onEdit={editReceipt}
+                  onEdit={editingReceipt}
                 />
               )
             })
