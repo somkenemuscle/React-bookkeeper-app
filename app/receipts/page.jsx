@@ -66,17 +66,23 @@ export default function () {
     const { value } = e.target;
     setSearch(value);
   }
-
+  
   function getSearch(e) {
     e.preventDefault();
+  
     function showSearch(search) {
-      return DisplayReceipts.filter((receipt) => receipt.name === search);
+      return DisplayReceipts.filter(
+        (receipt) =>
+          receipt.name.toLowerCase().includes(search.toLowerCase()) ||
+          receipt.shop.toLowerCase().includes(search.toLowerCase())
+      );
     }
+  
     setResultSearch(showSearch(search));
     setCondition(false);
     setSearch("");
   }
-
+  
   // show all receipts after search has been made
   function handleToggle() {
     setCondition(true);
