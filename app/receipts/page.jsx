@@ -69,8 +69,6 @@ export default function () {
       });
     }
     
-    
-
     setResultSearch(showSearch(search));
     setCondition(false);
     setSearch("");
