@@ -72,11 +72,12 @@ const newReceipt = (props) => {
                     </select>
                 </div>
                 <div>
-                    <button className='r-btn'>Add Receipt</button>
-                    <Link href="/receipts">
-                        <button className='r-btn'>Close</button>
-                    </Link>
-                </div>
+  <button className='r-btn'>Add Receipt</button>
+  <Link href="/receipts">
+    <button className='r-btn' style={{ marginLeft: '10px' }}>Close</button>
+  </Link>
+</div>
+
             </form>
         </div>
     );

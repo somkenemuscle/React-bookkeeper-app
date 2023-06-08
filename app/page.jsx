@@ -9,11 +9,13 @@ const Home = () => {
       <div className='content-container'>
         <div className='text-container'>
           <h1 className='header glowing-text'>Get Started With Bookie</h1>
-          <h3 className='header2 dark-purple-text'>Your app for saving receipts and keeping track of daily spendings.</h3>
+          <h3 className='header2'>Your app for saving receipts and keeping track of daily spendings.</h3>
         </div>
         <div className="animation-container">
-          <div className="credit-card-animation">
-            <Image src={creditCardImage} alt="Credit Card" width={200} height={130} />
+          <div className="credit-card-animation spin">
+            <div className="credit-card-image-container">
+              <Image src={creditCardImage} alt="Credit Card" width={200} height={130} />
+            </div>
           </div>
         </div>
       </div>
@@ -22,4 +24,3 @@ const Home = () => {
 }
 
 export default Home;
-

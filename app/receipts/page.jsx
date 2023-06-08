@@ -73,8 +73,7 @@ export default function () {
     function showSearch(search) {
       return DisplayReceipts.filter(
         (receipt) =>
-          receipt.name.toLowerCase().includes(search.toLowerCase()) ||
-          receipt.shop.toLowerCase().includes(search.toLowerCase())
+          receipt.item.includes(search) || receipt.shop.includes(search)
       );
     }
 

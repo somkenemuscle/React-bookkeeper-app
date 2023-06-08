@@ -69,7 +69,7 @@
 
 /* LIST RECEIPT PAGE STYLING */
 .search-container{
-  margin-top: 50px;
+  margin-top: 40px;
 
 }
 .search{
@@ -272,4 +272,60 @@ footer p {
       text-shadow: 0 0 5px #ffffff;
     }
   }
+
+  /* CARD ANIMATION */
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.animation-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.credit-card-animation {
+  position: relative;
+}
+
+.credit-card-animation:hover .credit-card-image-container {
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.credit-card-image-container {
+  position: relative;
+  left: calc(50% - 100px); /* Adjust the value based on the image width */
+  margin-top: 20px; /* Adjust the value based on the desired spacing */
+}
+
   
+
+.search-wrapper,
+.show-receipt-button-wrapper {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.search {
+  width: 400px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+  margin-right: 10px; 
+}
+
+/* new */
+
+

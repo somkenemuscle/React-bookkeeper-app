@@ -89,10 +89,13 @@ const EditReceipt = () => {
             <option value="electronics">Electronics</option>
           </select>
         </div>
-        <button className="r-btn">Submit</button>
-        <Link href="/receipts">
-          <button className="r-btn">Close</button>
-        </Link>
+        <div>
+  <button className="r-btn">Submit</button>
+  <Link href="/receipts">
+    <button className="r-btn" style={{ marginLeft: '10px' }}>Close</button>
+  </Link>
+</div>
+
       </form>
     </div>
   );
