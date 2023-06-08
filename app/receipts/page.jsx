@@ -62,11 +62,14 @@ export default function () {
     e.preventDefault();
 
     function showSearch(search) {
-      return displayReceipts.filter(
-        (receipt) =>
-          receipt.item.includes(search) || receipt.shop.includes(search)
-      );
+      return displayReceipts.filter((receipt) => {
+        const hasName = receipt.name && receipt.name.includes(search);
+        const hasShop = receipt.shop && receipt.shop.includes(search);
+        return hasName || hasShop;
+      });
     }
+    
+    
 
     setResultSearch(showSearch(search));
     setCondition(false);
