@@ -1,8 +1,9 @@
+
 "use client"
 
 import Listreceipts from "@/components/listreceipt";
 import Demoreceipts from "@/demo";
-import { useState, useContext, createContext } from 'react';
+import { useState, useContext } from 'react';
 import { AppContext } from "@/context/data";
 import { DisplayReceiptContext } from "@/context/display";
 import { EditReceiptContext } from "@/context/edit";
@@ -12,15 +13,15 @@ export default function () {
   const [receipts, setReceipts] = useContext(AppContext);
   const [search, setSearch] = useState("");
   const [condition, setCondition] = useState(true);
-  const [DisplayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext);
+  const [displayReceipts, setDisplayReceipts] = useContext(DisplayReceiptContext);
   const [editReceipt, setEditReceipt] = useContext(EditReceiptContext);
 
-  const [resultSearch, setResultSearch] = useState();
+  const [resultSearch, setResultSearch] = useState([]);
 
   // editing receipt
   function editingReceipt(id) {
     function getEdit() {
-      return DisplayReceipts.filter((receipt) => receipt.id === id);
+      return displayReceipts.filter((receipt) => receipt.id === id);
     }
     let detail = getEdit();
     setEditReceipt(...detail);
@@ -29,35 +30,25 @@ export default function () {
   // delete from receipt on and after search
   function deleteReceipt(id) {
     setDisplayReceipts((prevReceipts) => {
-      return prevReceipts.filter((receipt, index) => {
-        return DisplayReceipts[index].id !== id;
-      });
+      return prevReceipts.filter((receipt) => receipt.id !== id);
     });
 
     setReceipts((prevReceipts) => {
-      return prevReceipts.filter((receipt, index) => {
-        return receipts[index].id !== id;
-      });
+      return prevReceipts.filter((receipt) => receipt.id !== id);
     });
   }
 
   function deleteReceiptSearch(id) {
     setResultSearch((prevReceipts) => {
-      return prevReceipts.filter((receipt, index) => {
-        return resultSearch[index].id !== id;
-      });
+      return prevReceipts.filter((receipt) => receipt.id !== id);
     });
 
     setDisplayReceipts((prevReceipts) => {
-      return prevReceipts.filter((receipt, index) => {
-        return DisplayReceipts[index].id !== id;
-      });
+      return prevReceipts.filter((receipt) => receipt.id !== id);
     });
 
     setReceipts((prevReceipts) => {
-      return prevReceipts.filter((receipt, index) => {
-        return receipts[index].id !== id;
-      });
+      return prevReceipts.filter((receipt) => receipt.id !== id);
     });
   }
 
@@ -71,7 +62,7 @@ export default function () {
     e.preventDefault();
 
     function showSearch(search) {
-      return DisplayReceipts.filter(
+      return displayReceipts.filter(
         (receipt) =>
           receipt.item.includes(search) || receipt.shop.includes(search)
       );
