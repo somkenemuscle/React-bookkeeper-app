@@ -5,6 +5,7 @@ import { AppContext } from "@/context/data";
 import { EditReceiptContext } from "@/context/edit";
 import { DisplayReceiptContext } from '@/context/display';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const EditReceipt = () => {
   const router = useRouter();
@@ -89,6 +90,9 @@ const EditReceipt = () => {
           </select>
         </div>
         <button className="r-btn">Submit</button>
+        <Link href="/receipts">
+          <button className="r-btn">Close</button>
+        </Link>
       </form>
     </div>
   );
