@@ -224,7 +224,7 @@ footer p {
 }
 
 
-/* Animation */
+/* CREDIT CARD IMAGE */
 
 .credit-card-animation {
     position: absolute;
@@ -233,6 +233,7 @@ footer p {
     transform: translate(-50%, -50%);
 
   }
+  
   
 
   body {
@@ -251,6 +252,24 @@ footer p {
   }
 
 
-  /*  RECIEPTS PAGE CSS 
-*/
+  /*  MAIN PAGE GLOW CSS */
+  
+.glowing-text {
+    animation: glowing 5s ease-in-out infinite;
+  }
+  
+  @keyframes glowing {
+    0% {
+      color: #0f080f;
+      text-shadow: 0 0 5px #ffffff;
+    }
+    50% {
+      color: #0f080f;
+      text-shadow: 0 0 20px rebeccapurple, 0 0 30px rebeccapurple;
+    }
+    100% {
+      color: #0f080f;
+      text-shadow: 0 0 5px #ffffff;
+    }
+  }
   
