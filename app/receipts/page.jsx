@@ -66,10 +66,10 @@ export default function () {
     const { value } = e.target;
     setSearch(value);
   }
-  
+
   function getSearch(e) {
     e.preventDefault();
-  
+
     function showSearch(search) {
       return DisplayReceipts.filter(
         (receipt) =>
@@ -77,12 +77,12 @@ export default function () {
           receipt.shop.toLowerCase().includes(search.toLowerCase())
       );
     }
-  
+
     setResultSearch(showSearch(search));
     setCondition(false);
     setSearch("");
   }
-  
+
   // show all receipts after search has been made
   function handleToggle() {
     setCondition(true);
@@ -99,10 +99,10 @@ export default function () {
             name="search"
             value={search}
             type="text"
-            placeholder="find receipt"
+            placeholder="Find receipt"
             required
           />
-          <button>Search</button>
+          <button type="submit">Search</button>
         </form>
 
         <button className="show-receipt-button" onClick={handleToggle}>
@@ -114,7 +114,6 @@ export default function () {
         <div className="table-container">
           <table>
             <thead>
-            
               <tr>
                 <th>Date</th>
                 <th>Shop</th>
@@ -122,45 +121,40 @@ export default function () {
                 <th>Quantity</th>
                 <th>Price</th>
                 <th>Category</th>
-                <th>
-                  <span className="material-symbols-outlined">edit_note</span>
-                </th>
-                <th>
-                  <span className="material-symbols-outlined">delete</span>
-                </th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-            {condition
-  ? receipts.map((item) => (
-      <Listreceipts
-        key={item.id}
-        id={item.id}
-        shop={item.shop}
-        name={item.name} // Adjusted prop name for the item name
-        quantity={item.quantity}
-        price={item.price}
-        date={item.date}
-        category={item.category}
-        onDelete={deleteReceipt}
-        onEdit={editingReceipt}
-      />
-    ))
-  : resultSearch.map((item) => (
-      <Listreceipts
-        key={item.id}
-        id={item.id}
-        shop={item.shop}
-        name={item.name} // Adjusted prop name for the item name
-        quantity={item.quantity}
-        price={item.price}
-        date={item.date}
-        category={item.category}
-        onDelete={deleteReceiptSearch}
-        // onEdit={editReceipt}
-      />
-    ))}
-
+              {condition
+                ? receipts.map((item) => (
+                    <Listreceipts
+                      key={item.id}
+                      id={item.id}
+                      shop={item.shop}
+                      name={item.name} // Adjusted prop name for the item name
+                      quantity={item.quantity}
+                      price={item.price}
+                      date={item.date}
+                      category={item.category}
+                      onDelete={deleteReceipt}
+                      onEdit={editingReceipt}
+                    />
+                  ))
+                : resultSearch.map((item) => (
+                    <Listreceipts
+                      key={item.id}
+                      id={item.id}
+                      shop={item.shop}
+                      name={item.name} // Adjusted prop name for the item name
+                      quantity={item.quantity}
+                      price={item.price}
+                      date={item.date}
+                      category={item.category}
+                      onDelete={deleteReceiptSearch}
+                      // onEdit={editReceipt}
+                    />
+                  ))}
             </tbody>
           </table>
         </div>
@@ -173,4 +167,3 @@ export default function () {
     </div>
   );
 }
-

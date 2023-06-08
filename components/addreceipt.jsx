@@ -1,36 +1,34 @@
 "use client"
-import { useState } from 'react'
-import { v4 } from 'uuid'
-import Styles from '../styles/page.css'
+import React from 'react';
+import { useState } from 'react';
+import { v4 } from 'uuid';
+import Link from 'next/link';
+import Styles from '../styles/page.css';
 
 const newReceipt = (props) => {
-
-    const [receipt, setReceipt] = useState(
-        {
-            id: '',
-            shop: '',
-            item: '',
-            quantity: '',
-            date: '',
-            price: '',
-            category: ''
-        }
-    )
+    const [receipt, setReceipt] = useState({
+        id: '',
+        shop: '',
+        item: '',
+        quantity: '',
+        date: '',
+        price: '',
+        category: ''
+    });
 
     function handleChange(e) {
         const { name, value } = e.target;
         setReceipt((prevReceipt) => {
             return {
                 ...prevReceipt,
-                id:v4(),
+                id: v4(),
                 [name]: value
             };
-        })
+        });
     }
 
-
     function handleSubmit(e) {
-        e.preventDefault()
+        e.preventDefault();
         props.onAdd(receipt);
         setReceipt({
             shop: '',
@@ -38,17 +36,14 @@ const newReceipt = (props) => {
             quantity: '',
             date: '',
             price: ''
-        })
+        });
     }
-
 
     return (
         <div className="addform-container">
             <h3 className='r-head'>ADD RECEIPT</h3>
             <form onSubmit={handleSubmit}>
-
-
-           <div>
+                <div>
                     <label className='r-label'>Shop</label>
                     <input onChange={handleChange} name='shop' className='r-input' type='text' placeholder='Shop Name' value={receipt.shop} required />
                 </div>
@@ -69,19 +64,22 @@ const newReceipt = (props) => {
                 <div>
                     <label className='r-label'>Select Category</label>
                     <select onChange={handleChange} className='r-category' name="category" defaultValue={'Select'} required>
-                        <option value="Select" disabled >Choose Category...</option>
-                        <option value='Grocery' >Groceries</option>
+                        <option value="Select" disabled>Choose Category...</option>
+                        <option value='Grocery'>Groceries</option>
                         <option value='Cosmetics'>Cosmetics</option>
-                        <option value='Travel' >Travel</option>
+                        <option value='Travel'>Travel</option>
                         <option value='Electronics'>Electronics</option>
                     </select>
                 </div>
-                <button className='r-btn'>Add Receipt</button>
-
-
+                <div>
+                    <button className='r-btn'>Add Receipt</button>
+                    <Link href="/receipts">
+                        <button className='r-btn'>Close</button>
+                    </Link>
+                </div>
             </form>
         </div>
-    )
-}
+    );
+};
 
-export default newReceipt
+export default newReceipt;

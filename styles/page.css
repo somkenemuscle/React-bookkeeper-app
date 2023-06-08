@@ -207,20 +207,6 @@ FORM DESIGN */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* FOOTER STYLES */
 footer {
     position: fixed;
@@ -238,9 +224,11 @@ footer p {
 }
 
 
+/* Animation */
+
 .credit-card-animation {
     position: absolute;
-    top: 60%; /* Adjust this value to position the image vertically */
+    top: 60%; 
     left: 0;
     animation: moveCard 16s linear infinite;
   }
@@ -265,12 +253,14 @@ footer p {
   .search-container {
     display: flex;
     align-items: center;
+    margin-right: 20px;
   }
   
   .show-receipt-button {
     margin-left: 20px; /* Adjust the margin as per your preference */
   }
-  
-  
-  
+
+
+  /*  RECIEPTS PAGE CSS 
+*/
   
