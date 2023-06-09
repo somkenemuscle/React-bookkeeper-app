@@ -2,8 +2,7 @@
 "use client"
 
 import Listreceipts from "@/components/listreceipt";
-import Demoreceipts from "@/demo";
-import { useState, useContext } from 'react';
+import { useState, useContext } from "react";
 import { AppContext } from "@/context/data";
 import { DisplayReceiptContext } from "@/context/display";
 import { EditReceiptContext } from "@/context/edit";
@@ -68,7 +67,7 @@ export default function () {
         return hasName || hasShop;
       });
     }
-    
+
     setResultSearch(showSearch(search));
     setCondition(false);
     setSearch("");
@@ -96,58 +95,64 @@ export default function () {
           <button type="submit">Search</button>
         </form>
 
-        <button className="show-receipt-button" onClick={handleToggle}>
-          Show Receipt
-        </button>
+        <div class="button-container">
+  <button class="show-receipt-button" onClick={handleToggle}>
+    Reset
+  </button>
+</div>
+
+
       </div>
 
       <div className="receipts-container">
         <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>Date</th>
-                <th>Shop</th>
-                <th>Item</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {condition
-                ? receipts.map((item) => (
-                    <Listreceipts
-                      key={item.id}
-                      id={item.id}
-                      shop={item.shop}
-                      name={item.name} // Adjusted prop name for the item name
-                      quantity={item.quantity}
-                      price={item.price}
-                      date={item.date}
-                      category={item.category}
-                      onDelete={deleteReceipt}
-                      onEdit={editingReceipt}
-                    />
-                  ))
-                : resultSearch.map((item) => (
-                    <Listreceipts
-                      key={item.id}
-                      id={item.id}
-                      shop={item.shop}
-                      name={item.name} // Adjusted prop name for the item name
-                      quantity={item.quantity}
-                      price={item.price}
-                      date={item.date}
-                      category={item.category}
-                      onDelete={deleteReceiptSearch}
-                      // onEdit={editReceipt}
-                    />
-                  ))}
-            </tbody>
-          </table>
+          <div style={{ overflowX: "auto" }}>
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Shop</th>
+                  <th>Item</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Category</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                {condition
+                  ? receipts.map((item) => (
+                      <Listreceipts
+                        key={item.id}
+                        id={item.id}
+                        shop={item.shop}
+                        name={item.name} // Adjusted prop name for the item name
+                        quantity={item.quantity}
+                        price={item.price}
+                        date={item.date}
+                        category={item.category}
+                        onDelete={deleteReceipt}
+                        onEdit={editingReceipt}
+                      />
+                    ))
+                  : resultSearch.map((item) => (
+                      <Listreceipts
+                        key={item.id}
+                        id={item.id}
+                        shop={item.shop}
+                        name={item.name} // Adjusted prop name for the item name
+                        quantity={item.quantity}
+                        price={item.price}
+                        date={item.date}
+                        category={item.category}
+                        onDelete={deleteReceiptSearch}
+                        // onEdit={editReceipt}
+                      />
+                    ))}
+              </tbody>
+            </table>
+          </div>
         </div>
 
         {/* Add Receipt component */}

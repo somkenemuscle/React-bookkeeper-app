@@ -14,6 +14,7 @@
     padding: 20px 10px;
     font-family: "Montserrat", sans-serif;
     box-shadow: 5px 2px 8px 2px #888888;
+    width: auto;
 
 
 }
@@ -56,8 +57,11 @@
     font-family: "Montserrat", sans-serif;
     margin-bottom: 10px;
     font-size: 70px;
+    display: flex;
+    align-items: center;
+  }
 
-}
+
 
 .header2 {
     text-align: center;
@@ -68,10 +72,6 @@
 
 
 /* LIST RECEIPT PAGE STYLING */
-.search-container{
-  margin-top: 40px;
-
-}
 .search{
     margin-left:45%;
     width: 10%;
@@ -221,35 +221,12 @@ footer {
 footer p {
     color: #ccc;
     font-family: "Montserrat", sans-serif;
-}
-
-
-/* CREDIT CARD IMAGE */
-
-.credit-card-animation {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-  }
-  
-  
+}  
 
   body {
     background-color: #f2e6ff; /* Adjust the color code as per your preference */
   }
   
-
-  .search-container {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-  }
-  
-  .show-receipt-button {
-    margin-left: 20px; /* Adjust the margin as per your preference */
-  }
 
 
   /*  MAIN PAGE GLOW CSS */
@@ -275,46 +252,67 @@ footer p {
 
   /* CARD ANIMATION */
 
+
 .content-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  justify-content: center;
+  margin-bottom: 5px;
+}
+
+.text-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+.header2 {
+  font-size: 18px;
 }
 
 .animation-container {
-  margin-top: 20px;
+  padding-top: 10px;
   display: flex;
   justify-content: center;
+  align-items: center; /* Added alignment */
 }
 
 .credit-card-animation {
-  position: relative;
-}
-
-.credit-card-animation:hover .credit-card-image-container {
-  animation: spin 1s infinite linear;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  width: 200px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
 }
 
 .credit-card-image-container {
-  position: relative;
-  left: calc(50% - 100px); /* Adjust the value based on the image width */
-  margin-top: 20px; /* Adjust the value based on the desired spacing */
+  width: 120px;
+  height: 80px;
 }
 
-  
+@media (max-width: 480px) {
+  .header {
+    font-size: 75px;
+  }
+
+  .header2 {
+    font-size: 16px;
+  }
+
+  .credit-card-animation {
+    width: 200px;
+    height: 80px;
+  }
+
+  .credit-card-image-container {
+    width: 120px;
+    height: 60px;
+  }
+}
 
 
-/* new */
+/* reciept page styling */
 
 .header {
   display: flex;
@@ -328,7 +326,10 @@ footer p {
   display: flex;
   align-items: center;
   margin-right: 10px;
-  padding-bottom: 35px;
+  padding-bottom: 40px;
+  margin-top: 40px;
+
+
 }
 
 .search {
@@ -337,8 +338,72 @@ footer p {
   margin-right: 10px;
 }
 
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  padding-right: 200px;
+}
+
 .show-receipt-button {
   height: 20px; /* Adjust the height as needed */
-  vertical-align: middle;
-  margin-left: 10px;
 }
+
+
+
+/* homepage responsive styling */
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.text-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header {
+  font-size: 75px; /* main title size /*
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.header2 {
+  font-size: 18px;
+}
+
+.credit-card-image-container {
+  padding-top: 20px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 30px; /* Adjust the margin-top value as needed */
+  margin-bottom: 30px; /* Add margin-bottom for proper spacing */
+}
+
+@media (max-width: 767px) {
+  .header {
+    font-size: 24px;
+    margin-top: 10px; /* Adjust the margin-top value as needed */
+  }
+
+  .header2 {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

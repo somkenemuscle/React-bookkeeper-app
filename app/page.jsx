@@ -1,7 +1,7 @@
-import Styles from '../styles/page.css';
 import Link from 'next/link';
 import Image from 'next/image';
 import creditCardImage from '../styles/credit-card.png';
+import Styles from '../styles/page.css';
 
 const Home = () => {
   return (
