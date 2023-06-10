@@ -21,8 +21,9 @@ export default function () {
   function editingReceipt(id) {
     function getEdit() {
       return DisplayReceipts.filter((receipt) =>
-      receipt.id === id
-    )}
+        receipt.id === id
+      )
+    }
     let detail = getEdit()
     setEditReceipt(...detail)
   }
@@ -89,27 +90,27 @@ export default function () {
   //return components
   return (
     <div className="list-container">
-      <form className="search-container" onSubmit={getSearch}>
-        <input className="search" onChange={handleSearchChange} name="search" value={search} type="text" placeholder="find receipt" required />
-        <button>Search</button>
-      </form>
 
-      <button onClick={handleToggle}>Show Receipt</button>
+      <form className="search-container" onSubmit={getSearch}>
+        <input className="search" onChange={handleSearchChange} name="search" value={search} type="text" placeholder="Search For An Item" required />
+        <button className="searchbtn">Search</button>
+      </form>
+      <button className="btnshow" onClick={handleToggle}>Show Receipt</button>
 
       <table>
         <tbody>
-          <tr>
-            <th>Date</th>
-            <th>Item</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>
+          <tr className="thead">
+            <th scope="col">Date</th>
+            <th scope="col">Item</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">
               <span className="material-symbols-outlined">
                 edit_note
               </span>
             </th>
-            <th>
+            <th scope="col">
               <span className="material-symbols-outlined">
                 delete
               </span>

@@ -2,20 +2,12 @@
     margin: 0;
 }
 
-/* .body {
-    background-color:  #000000;
-    color: white;
-} */
-
 /* NAVBAR STYLING */
 .topnav {
     overflow: hidden;
     background-color: #24252a;
     padding: 20px 10px;
     font-family: "Montserrat", sans-serif;
-    box-shadow: 5px 2px 8px 2px #888888;
-
-
 }
 
 .items {
@@ -48,9 +40,20 @@
     text-decoration: none;
 }
 
+@media screen and (max-width: 400px) {
+    .items{
+        padding:6px 6px ;
+    }
+}
+@media screen and (max-width: 358px) {
+    .items{
+        padding:2px 2px ;
+    }
+}
+
 /* BODY HOMEPAGE STYLES */
 .header {
-    margin-top: 140px;
+    margin-top: 80px;
     text-align: center;
     font-weight: bold;
     font-family: "Montserrat", sans-serif;
@@ -64,47 +67,152 @@
     color: grey;
     font-family: "Montserrat", sans-serif;
 }
+.animation-container{
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5px;
+}
 
-
+@media screen and (max-width: 400px) {
+.animation-container{
+    margin-bottom: 80px;
+}
+}
 
 /* LIST RECEIPT PAGE STYLING */
-.search-container{
-  margin-top: 50px;
-
+.search-container {
+    margin-top: 30px;
+    margin-left: 40%;
 }
-.search{
-    margin-left:45%;
-    width: 10%;
+
+.search {
     padding: 10px 10px;
+    width: 30%;
+    border-radius: 15px;
     font-family: "Montserrat", sans-serif;
 }
 
-table {
-    margin-top: 20px;
-    margin-left: 15%;
-    margin-right: 15%;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 70%;
-    border: 1px solid #ddd;
-    font-family: "Montserrat", sans-serif ;
-
-
-}
-
-th {
-    background-color: #131731;
-    color: white;
-    text-align: left;
-    padding: 15px;
-    cursor: pointer;
+.searchbtn {
+    padding: 10px 10px;
+    font-family: sans-serif;
     font-weight: lighter;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
 }
 
-td {
-    text-align: left;
-    padding: 14px;
+.searchbtn:hover {
+    transition: 0.5s;
+    background-color: #24252a;
+    color: white;
+}
+
+.btnshow {
+    margin-left: 48%;
+    padding: 10px 10px;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 20px;
+    font-weight: light;
     cursor: pointer;
+    border-radius: 10px;
+}
+
+.btnshow:hover {
+    background-color: #24252a;
+    color: white;
+    transition: 0.2s;
+}
+
+/* list but table design */
+table {
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 20px 0px 10% 10%;
+    padding: 0;
+    width: 80%;
+    table-layout: fixed;
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 80px;
+}
+
+
+table tr {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+table th,
+table td {
+    padding: .625em;
+    text-align: center;
+}
+
+table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+@media screen and (max-width: 840px) {
+    .btnshow {
+        margin-left: 35%;
+    }
+
+    .search-container {
+        margin-left: 10%;
+    }
+
+    .search {
+        width: 60%;
+    }
+
+
+    table {
+        border: 0;
+    }
+
+    table .thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+    }
+
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    table td::before {
+        /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
 }
 
 tr:nth-child(even) {
@@ -160,8 +268,6 @@ FORM DESIGN */
     border-radius: 10px;
     margin-bottom: 20px;
     font-family: "Montserrat", sans-serif;
-
-
 }
 
 .r-head {
@@ -204,20 +310,6 @@ FORM DESIGN */
     border: 1px solid white;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
