@@ -1,5 +1,6 @@
 * {
-    margin: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* .body {
@@ -9,14 +10,12 @@
 
 /* NAVBAR STYLING */
 .topnav {
-    overflow: hidden;
-    background-color: #24252a;
-    padding: 20px 10px;
-    font-family: "Montserrat", sans-serif;
-    box-shadow: 5px 2px 8px 2px #888888;
-    width: auto;
-
-
+  overflow: hidden;
+  background-color: #24252a;
+  padding: 20px 10px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 5px 2px 8px 2px #888888;
+  width: 100%;
 }
 
 .items {
@@ -59,6 +58,7 @@
     font-size: 70px;
     display: flex;
     align-items: center;
+    width: 100%
   }
 
 
@@ -224,7 +224,7 @@ footer p {
 }  
 
   body {
-    background-color: #f2e6ff; /* Adjust the color code as per your preference */
+    background-color: #e3ddea; /* Adjust the color code as per your preference */
   }
   
 
@@ -367,13 +367,16 @@ footer p {
 }
 
 .header {
-  font-size: 75px; /* main title size /*
+  font-size: 75px; /* main title size */
   margin-bottom: 10px;
   padding-bottom: 10px;
 }
 
 .header2 {
+  padding-top: 40px;
   font-size: 18px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .credit-card-image-container {
@@ -387,20 +390,11 @@ footer p {
 @media (max-width: 767px) {
   .header {
     font-size: 24px;
-    margin-top: 10px; /* Adjust the margin-top value as needed */
-  }
-
-  .header2 {
-    font-size: 16px;
-    margin-top: 20px;
-    margin-bottom: 20px; /* Adjust the margin-bottom value as needed */
+    margin-top: 10px; 
   }
 }
 
-
-
-
-
+/* background test code */
 
 
 
