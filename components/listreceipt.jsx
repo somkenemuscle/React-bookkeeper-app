@@ -15,6 +15,7 @@ const listreceipts = (props) => {
             <td data-label='Item'>{props.name}</td>
             <td data-label='Quantity'>{props.quantity}</td>
             <td data-label='Price'>${props.price}</td>
+            <td data-label='Shop'>{props.shop}</td>
             <td data-label='Category'>{props.category}</td>
             <td data-label='Edit' > 
              <Link href='/receipts/edit'>

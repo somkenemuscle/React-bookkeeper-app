@@ -73,9 +73,11 @@ export default function () {
   function getSearch(e) {
     e.preventDefault()
     function showSearch(search) {
-      return DisplayReceipts.filter((receipt) =>
-        receipt.name === search
-      )
+      return DisplayReceipts.filter((receipt) => {
+        const hasName = receipt.name && receipt.name.includes(search);
+        const hasShop = receipt.shop && receipt.shop.includes(search);
+        return hasName || hasShop;
+      });
     }
     setResultSearch(showSearch(search))
     setConditon(false)
@@ -92,7 +94,7 @@ export default function () {
     <div className="list-container">
 
       <form className="search-container" onSubmit={getSearch}>
-        <input className="search" onChange={handleSearchChange} name="search" value={search} type="text" placeholder="Search For An Item" required />
+        <input className="search" onChange={handleSearchChange} name="search" value={search} type="text" placeholder="Search For An Item Or Shop" required />
         <button className="searchbtn">Search</button>
       </form>
       <button className="btnshow" onClick={handleToggle}>Show Receipt</button>
@@ -104,6 +106,7 @@ export default function () {
             <th scope="col">Item</th>
             <th scope="col">Quantity</th>
             <th scope="col">Price</th>
+            <th scope="col">Shop</th>
             <th scope="col">Category</th>
             <th scope="col">
               <span className="material-symbols-outlined">
@@ -126,6 +129,7 @@ export default function () {
                   quantity={item.quantity}
                   price={item.price}
                   date={item.date}
+                  shop={item.shop}
                   category={item.category}
                   onDelete={deleteReceipt}
                   onEdit={editingReceipt}
@@ -140,6 +144,7 @@ export default function () {
                   quantity={item.quantity}
                   price={item.price}
                   date={item.date}
+                  shop={item.shop}
                   category={item.category}
                   onDelete={deleteReceiptSearch}
                   onEdit={editingReceipt}

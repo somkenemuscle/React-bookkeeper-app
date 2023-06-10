@@ -19,7 +19,8 @@ const EditReceipt = () => {
             quantity: editReceipt.quantity,
             date: editReceipt.date,
             price: editReceipt.price,
-            category: editReceipt.category
+            category: editReceipt.category,
+            shop:editReceipt.shop
         }
     )
 
@@ -80,6 +81,10 @@ const EditReceipt = () => {
                 <div>
                     <label className='r-label'>Price</label>
                     <input onChange={handleChange} name='price' className='r-input' value={edit.price} type='number' placeholder='$ Price' required />
+                </div>
+                <div>
+                    <label className='r-label'>Shop</label>
+                    <input onChange={handleChange} name='shop' className='r-input' value={edit.shop} type='text' placeholder='Shop' required />
                 </div>
                 <div>
                     <label className='r-label'>Select Category</label>

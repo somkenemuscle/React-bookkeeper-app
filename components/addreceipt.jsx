@@ -13,7 +13,8 @@ const newReceipt = (props) => {
             quantity: '',
             date: '',
             price: '',
-            category: ''
+            category: '',
+            shop: ''
         }
     )
 
@@ -36,7 +37,8 @@ const newReceipt = (props) => {
             name: '',
             quantity: '',
             date: '',
-            price: ''
+            price: '',
+            shop:''
         })
         function link() {
             router.push('/receipts')
@@ -62,6 +64,10 @@ const newReceipt = (props) => {
                 <div>
                     <label className='r-label'>Price</label>
                     <input onChange={handleChange} name='price' className='r-input' type='number' placeholder='$ Price' value={receipt.price} required />
+                </div>
+                <div>
+                    <label className='r-label'>Shop</label>
+                    <input onChange={handleChange} name='shop' className='r-input' type='text' placeholder='Shop' value={receipt.shop} required />
                 </div>
                 <div>
                     <label className='r-label'>Select Category</label>
