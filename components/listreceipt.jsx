@@ -2,15 +2,35 @@ import Styles from '../styles/page.css'
 import Link from 'next/link'
 
 const listreceipts = (props) => {
+    function handleDelete() {
+        props.onDelete(props.id);
+    }
+    function handleEdit() {
+        props.onEdit(props.id)
+    }
+
     return (
-        <section className='r-list-items'>
-            <h4 className='r-items r-name'>{props.name}</h4>
-            <p className='r-items r-descrip'>The purchase receipt for the {props.name}</p>
-            <Link href='#'>
-            <button className='r-btn'>see more</button>
+        <tr>
+            <td  data-label='Date' scope='row'>{props.date}</td>
+            <td data-label='Item'>{props.name}</td>
+            <td data-label='Quantity'>{props.quantity}</td>
+            <td data-label='Price'>${props.price}</td>
+            <td data-label='Shop'>{props.shop}</td>
+            <td data-label='Category'>{props.category}</td>
+            <td data-label='Edit' > 
+             <Link href='/receipts/edit'>
+                <span onClick={handleEdit} className="material-symbols-outlined edit">edit_note</span>
             </Link>
-        </section>
-        
+            </td>
+            <td data-label='Delete' className='delete'>
+                <span onClick={handleDelete} className="material-symbols-outlined">delete</span>
+            </td>
+
+        </tr>
+
+
+
+
     )
 }
 

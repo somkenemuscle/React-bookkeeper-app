@@ -1,16 +1,20 @@
 "use client"
 import { useState } from 'react'
+import { v4 } from 'uuid'
+import { useRouter } from 'next/navigation';
 import Styles from '../styles/page.css'
 
 const newReceipt = (props) => {
-
+    const router = useRouter();
     const [receipt, setReceipt] = useState(
         {
+            id: '',
             name: '',
-            quantity: Number,
+            quantity: '',
             date: '',
-            price: Number,
-            category: ''
+            price: '',
+            category: '',
+            shop: ''
         }
     )
 
@@ -19,23 +23,27 @@ const newReceipt = (props) => {
         setReceipt((prevReceipt) => {
             return {
                 ...prevReceipt,
+                id: v4(),
                 [name]: value
             };
         })
     }
-    function handleClick() {
+
+
+    function handleSubmit(e) {
+        e.preventDefault()
         props.onAdd(receipt);
         setReceipt({
             name: '',
             quantity: '',
             date: '',
             price: '',
-            category: ''
-        });
-    }
-
-    function handleSubmit(e) {
-        e.preventDefault()
+            shop:''
+        })
+        function link() {
+            router.push('/receipts')
+        }
+        link()
     }
 
 
@@ -45,29 +53,35 @@ const newReceipt = (props) => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label className='r-label'>Item</label>
-                    <input onChange={handleChange} name='name' className='r-input' type='text' placeholder='Product Name' required />
+                    <input onChange={handleChange} name='name' className='r-input' type='text' placeholder='Product Name' value={receipt.name} required />
                 </div>
                 <label className='r-label'>Quantity</label>
-                <input onChange={handleChange} name='quantity' className='r-input' type='number' placeholder='Quantity' min='1' required />
+                <input onChange={handleChange} name='quantity' className='r-input' type='number' placeholder='Quantity' value={receipt.quantity} min='1' required />
                 <div>
                     <label className='r-label'>Date Of Purchase</label>
-                    <input onChange={handleChange} name='date' className='r-input' type="date" placeholder='Select Date' required />
+                    <input onChange={handleChange} name='date' className='r-input' type="date" placeholder='Select Date' value={receipt.date} required />
                 </div>
                 <div>
                     <label className='r-label'>Price</label>
-                    <input onChange={handleChange} name='price' className='r-input' type='number' placeholder='$ Price' required />
+                    <input onChange={handleChange} name='price' className='r-input' type='number' placeholder='$ Price' value={receipt.price} required />
+                </div>
+                <div>
+                    <label className='r-label'>Shop</label>
+                    <input onChange={handleChange} name='shop' className='r-input' type='text' placeholder='Shop' value={receipt.shop} required />
                 </div>
                 <div>
                     <label className='r-label'>Select Category</label>
                     <select onChange={handleChange} className='r-category' name="category" defaultValue={'Select'} required>
                         <option value="Select" disabled >Choose Category...</option>
-                        <option value='grocery' >Groceries</option>
-                        <option value='cosmetics'>Cosmetics</option>
-                        <option value='travel' >Travel</option>
-                        <option value='electronics'>Electronics</option>
+                        <option value='Grocery' >Groceries</option>
+                        <option value='Cosmetics'>Cosmetics</option>
+                        <option value='Travel' >Travel</option>
+                        <option value='Electronics'>Electronics</option>
                     </select>
                 </div>
-                <button onClick={handleClick} className='r-btn'>Add Receipt</button>
+                <button className='r-btn'>Add Receipt</button>
+
+
             </form>
         </div>
     )

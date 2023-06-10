@@ -1,0 +1,15 @@
+     -FIRST PHASE (WORKING ON RECEIPT DESIGN AND FUNCTIONALITY)
+
+-ROUTING
+---------
+    -New Receipt Link On Navbar - links to a page that shows a form to add new receipt
+   - Receipt Link On Navbar- links to a page that shows all the added receipts
+
+-FUNCTIONALITY
+-------------
+In /receipts/new - Where the add receipt form is rendered 
+when the add button is clicked the inputed receipt is then saved 
+
+on /receipts
+See More Button - (pending) will show more details about a particuar receipt
+ 
