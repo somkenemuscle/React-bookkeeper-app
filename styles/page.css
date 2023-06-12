@@ -310,6 +310,24 @@ FORM DESIGN */
     border: 1px solid white;
 
 }
+.r-btn-exit {
+    margin-top: 10px;
+    padding: 10px 10px;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    border: 1px solid white;
+    border-radius: 15px;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    font-weight: light;
+}
+.r-btn-exit:hover {
+    background-color: darkred;
+    transition: 0.3s;
+}
+   
+
 
 
 

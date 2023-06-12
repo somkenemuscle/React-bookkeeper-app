@@ -88,7 +88,7 @@ const EditReceipt = () => {
                 </div>
                 <div>
                     <label className='r-label'>Select Category</label>
-                    <select onChange={handleChange} className='r-category' name="category" defaultValue={'Select'} required>
+                    <select onChange={handleChange} className='r-category' name="category" defaultValue={edit.category} required>
                         <option value="Select" disabled >Choose Category...</option>
                         <option value='Grocery' >Groceries</option>
                         <option value='Cosmetics'>Cosmetics</option>
@@ -96,7 +96,8 @@ const EditReceipt = () => {
                         <option value='Electronics'>Electronics</option>
                     </select>
                 </div>
-                <button className='r-btn'>Edit Receipt</button>
+                <button className='r-btn'>Save</button>
+                <button className='r-btn-exit'>Cancel</button>
 
             </form>
         </div>
